@@ -1,15 +1,72 @@
-<h1 align="center">Hi 👋, I'm Lucas Amorim Lima</h1>
-<h3 align="center">BackEnd Developer</h3>
+<p align="center">
+    <h2 align="center">Lucas Amorim Lima</h2>
+</p> 
+<p align="center">Personal Expense Management</p>
 
-- 📫 How to reach me **lucasamorimlima17@gmail.com**
+## :rocket: Quick start
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/lucas amorim lima" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="lucas amorim lima" height="30" width="40" /></a>
-</p>
+**Run the site locally**
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> </p>
+_NOTE: The default branch for this repo is `develop`, when you push or pull make sure you specify the correct branch_
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=lucasamorimlima&show_icons=true&locale=en" alt="lucasamorimlima" /></p>
+### Step 1: Clone The Repo
 
+Fork the repository. then clone the repo locally by doing -
+
+```bash
+git clone https://github.com/LucasAmorimLima/ManSch.git
+```
+
+### Step 2: Install Dependencies
+
+cd into the directory
+
+```bash
+cd ManSch
+```
+
+install all the dependencies
+```bash
+npm install
+```
+
+### Step 3: Start Development Server
+
+Then start the development Server
+```
+node app.js
+```
+
+I recommend using nodemon
+```
+nodemon app.js
+```
+
+After running the development server the site should be running on https://localhost:8081
+
+
+## :open_file_folder: What's inside?
+
+A quick look at the folder structure of this project.
+
+    .
+    ├── api
+    │   ├───controller
+    │   ├───model
+    │   └───services
+    ├── config
+    ├── routes
+
+
+## Tools Used
+
+1. Express
+2. Sequelize
+3. JWT
+4. Body Paser
+
+## :v: Contributing
+
+*NOTE: if you want to change the [project content](./content) or fix any typo you can do that from github's ui without cloning the repo locally*
+
+After cloning & setting up the local project you can push the changes to your github fork and make a pull request.
