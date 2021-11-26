@@ -1,0 +1,5 @@
+Trechos de código pequeno que são utilizado por mais de uma classe. 
+Funções que são utilizadas para auxiliar na construção de um código 
+maior e podendo ser utilizado em qualquer parte das camadas aplicação, 
+por exemplo um helper pode utilizar mais de um util para construir um 
+código mais completo para uma finalidade especifica.

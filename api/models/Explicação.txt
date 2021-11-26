@@ -1,0 +1,2 @@
+Determina a estrutura lógica que representa uma entidade do banco de 
+dados e da forma na qual os dados podem ser manipulados e organizados.

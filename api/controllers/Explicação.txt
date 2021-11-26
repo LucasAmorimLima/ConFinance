@@ -1,0 +1,3 @@
+O controle deve se preocupar em aceitar a solicitação, 
+repassar para o serviço de domínio correto processe a 
+solicitação e entregue a resposta ao cliente.

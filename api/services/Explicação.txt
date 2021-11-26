@@ -1,0 +1,2 @@
+Essa camada é um design pattern que ajuda a abstrair suas regras de negócio,
+deixando sua controller mais limpa e com a responsabilidade única.

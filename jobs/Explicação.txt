@@ -1,0 +1,8 @@
+Essa camada é criada para armazenar tarefas agendadas que precisam 
+ser feitas automaticamente em um certo intervalo de tempo. 
+Como nossa regra de negócios está centralizada em um serviço isso 
+facilita a utilização em um cron.
+
+Devido a forma que o node funciona é melhor evitar a utilização de
+formas primitivas para agendar uma tarefa e com isso você ganha um 
+controle melhor dos retornos da ação executada.
