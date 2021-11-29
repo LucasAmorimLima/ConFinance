@@ -1,28 +1,28 @@
 const Revenues = require('../models/RevenuesModel')
-const validator = require('../services/validations/revenuesValidator')
+const {revenuesValidator,erro} = require('../services/validations/revenuesValidator')
 
-   exports.index = (req, res, next) => {
-      Revenues.findAll().then((result)=>{
+   exports.index = async (req, res, next) => {
+      await Revenues.findAll().then((result)=>{
          res.send(result)
          //implementation
      }).catch((error)=>{
-         res.send(error)
-         //implementation
+         exptions.push(500,error)
+         next();
      }) 
     }  
 
-    exports.show = (req, res, next) => {
-      Revenues.findAll({where: {id: req.params.id}}).then((result)=>{
+    exports.show = async (req, res, next) => {
+      await Revenues.findAll({where: {id: req.params.id}}).then((result)=>{
          res.send(result)
          //implementation
      }).catch((error)=>{
-         //implementation
+         exptions.push(500,error)
+         next();
      }) 
     };
     exports.insert  =  async (req, res, next) => {  
       const data = req.body
-      if(validator.revenuesValidator(data.nome, data.capital, data.diaDeRecebimento)){             
-         console.log('1')
+      if(revenuesValidator(data.nome, data.capital, data.diaDeRecebimento)){             
          await  Revenues.create({ 
             nome: data.nome,
             capital: data.capital,
@@ -30,23 +30,22 @@ const validator = require('../services/validations/revenuesValidator')
          }).then((result)=>{
             res.send(result)
             //implementation
-         }).catch((err)=>{
-            console.log(err)
-                      //implementation
+         }).catch((error)=>{
+            exptions.push(500,error)
+            next();
             })
-         } 
-         else{
-            console.log(validator.error)
-         }
+         }else{
+            exptions.push(401,erro)
+            next();
+        }
     };
     
-   exports.destroy = (req, res, next) => {
-      Revenues.destroy({where: {id:req.body.id}}).then((result)=>{
+   exports.destroy = async (req, res, next) => {
+      await Revenues.destroy({where: {id:req.body.id}}).then((result)=>{
          res.send(result)
-     }).catch ((err) =>{
-         console.log(err)
-         res.send(err)
-         //implementation
+     }).catch ((error) =>{
+         exptions.push(500,error)
+         next();n
      })
         
    };  

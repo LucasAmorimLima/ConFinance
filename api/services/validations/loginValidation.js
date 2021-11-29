@@ -22,5 +22,5 @@ module.exports = {
             return true
         }
     },
-    error: erro
+    erro: erro
 }

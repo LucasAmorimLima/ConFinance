@@ -1,27 +1,28 @@
 const Expenditure = require('../models/ExpenditureModel')
-const validator = require('../services/validations/revenuesValidator')
+const {expenditureValidator,erro} = require('../services/validations/ExpenditureValidator')
 
-   exports.index = (req, res, next) => {
-    Expenditure.findAll().then((result)=>{
+   exports.index = async (req, res, next) => {
+    await Expenditure.findAll().then((result)=>{
          res.send(result)
          //implementation
      }).catch((error)=>{
-         res.send(error)
-         //implementation
+        exptions.push(500,error)
+        next();
      }) 
     }  
 
-    exports.show = (req, res, next) => {
-        Expenditure.findAll({where: {id: req.params.id}}).then((result)=>{
+    exports.show = async (req, res, next) => {
+        await Expenditure.findAll({where: {id: req.params.id}}).then((result)=>{
          res.send(result)
          //implementation
      }).catch((error)=>{
-         //implementation
+        exptions.push(500,error)
+        next();
      }) 
     };
     exports.insert  =  async (req, res, next) => {  
       const data = req.body
-      if(validator.expenditureValidator(data.nome, data.capital, data.diaDeRecebimento)){             
+      if(expenditureValidator(data.nome, data.capital, data.diaDeRecebimento)){             
          
          await  Expenditure.create({ 
             nome: data.nome,
@@ -30,21 +31,23 @@ const validator = require('../services/validations/revenuesValidator')
          }).then((result)=>{
             res.send(result)
             //implementation
-         }).catch((err)=>{
-            console.log(err)
-                      //implementation
+         }).catch((error)=>{
+            exptions.push(500,error)
+            next();
             })
                   
-         } 
+        }else{
+         exptions.push(401,erro)
+         next();
+     }
     };
     
    exports.destroy = (req, res, next) => {
     Expenditure.destroy({where: {id:req.body.id}}).then((result)=>{
          res.send(result)
-     }).catch ((err) =>{
-         console.log(err)
-         res.send(err)
-         //implementation
+     }).catch ((error) =>{
+        exptions.push(500,error)
+        next();
      })
         
    };  
