@@ -3,7 +3,7 @@ const connection = require('../../configs/connection')
 
 
 const Users = connection.sequelize.define('user', {
-nome: {
+name: {
     type: DataTypes.STRING,
     allowNull: false
     },
@@ -11,10 +11,10 @@ email: {
     type: DataTypes.STRING,
     allowNull: false
     },
-senha: {
+password: {
     type: DataTypes.STRING,
     allowNull: false
     },
 });
 module.exports = Users
-//User.sync({force: true})
+//Users.sync({force: true})

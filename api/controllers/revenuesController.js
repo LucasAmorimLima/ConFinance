@@ -1,52 +1,40 @@
 const Revenues = require('../models/RevenuesModel')
-const {revenuesValidator,erro} = require('../services/validations/revenuesValidator')
+
 
    exports.index = async (req, res, next) => {
-      await Revenues.findAll().then((result)=>{
-         res.send(result)
-         //implementation
-     }).catch((error)=>{
-         exptions.push(500,error)
-         next();
+      await Revenues.findAll()  .then((result)=>{
+         return res.status(200).json(result)
+     }).catch ((error) =>{
+         return res.status(400).json(error)
      }) 
     }  
 
     exports.show = async (req, res, next) => {
-      await Revenues.findAll({where: {id: req.params.id}}).then((result)=>{
-         res.send(result)
-         //implementation
-     }).catch((error)=>{
-         exptions.push(500,error)
-         next();
+      await Revenues.findAll({where: {id: req.params.id}})  .then((result)=>{
+         return res.status(200).json(result)
+     }).catch ((error) =>{
+         return res.status(400).json(error)
      }) 
     };
     exports.insert  =  async (req, res, next) => {  
-      const data = req.body
-      if(revenuesValidator(data.nome, data.capital, data.diaDeRecebimento)){             
+      const data = req.body        
          await  Revenues.create({ 
-            nome: data.nome,
+            name: data.name,
             capital: data.capital,
             diaDeRecebimento: data.diaDeRecebimento,
-         }).then((result)=>{
-            res.send(result)
-            //implementation
-         }).catch((error)=>{
-            exptions.push(500,error)
-            next();
-            })
-         }else{
-            exptions.push(401,erro)
-            next();
-        }
+         })  .then((result)=>{
+            return res.status(200).json(result)
+        }).catch ((error) =>{
+            return res.status(400).json(error)
+        }) 
     };
     
    exports.destroy = async (req, res, next) => {
-      await Revenues.destroy({where: {id:req.body.id}}).then((result)=>{
-         res.send(result)
+      await Revenues.destroy({where: {id:req.body.id}})  .then((result)=>{
+         return res.status(200).json(result)
      }).catch ((error) =>{
-         exptions.push(500,error)
-         next();n
-     })
+         return res.status(400).json(error)
+     }) 
         
    };  
 

@@ -1,54 +1,40 @@
 const Expenditure = require('../models/ExpenditureModel')
-const {expenditureValidator,erro} = require('../services/validations/ExpenditureValidator')
+
 
    exports.index = async (req, res, next) => {
     await Expenditure.findAll().then((result)=>{
-         res.send(result)
-         //implementation
-     }).catch((error)=>{
-        exptions.push(500,error)
-        next();
-     }) 
+      return res.status(200).json(result)
+  }).catch ((error) =>{
+      return res.status(400).json(error)
+  })
     }  
 
     exports.show = async (req, res, next) => {
-        await Expenditure.findAll({where: {id: req.params.id}}).then((result)=>{
-         res.send(result)
-         //implementation
-     }).catch((error)=>{
-        exptions.push(500,error)
-        next();
+        await Expenditure.findAll({where: {id: req.params.id}})  .then((result)=>{
+         return res.status(200).json(result)
+     }).catch ((error) =>{
+         return res.status(400).json(error)
      }) 
     };
     exports.insert  =  async (req, res, next) => {  
       const data = req.body
-      if(expenditureValidator(data.nome, data.capital, data.diaDeRecebimento)){             
-         
          await  Expenditure.create({ 
-            nome: data.nome,
+            name: data.name,
             capital: data.capital,
-            diaDeRecebimento: data.diaDeRecebimento,
-         }).then((result)=>{
-            res.send(result)
-            //implementation
-         }).catch((error)=>{
-            exptions.push(500,error)
-            next();
-            })
-                  
-        }else{
-         exptions.push(401,erro)
-         next();
-     }
+            paymentDay: data.paymentDay,
+         })  .then((result)=>{
+            return res.status(200).json(result)
+        }).catch ((error) =>{
+            return res.status(400).json(error)
+        }) 
     };
     
    exports.destroy = (req, res, next) => {
     Expenditure.destroy({where: {id:req.body.id}}).then((result)=>{
-         res.send(result)
-     }).catch ((error) =>{
-        exptions.push(500,error)
-        next();
-     })
+      return res.status(200).json(result)
+  }).catch ((error) =>{
+      return res.status(400).json(error)
+  })
         
    };  
 

@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 
 
-router.post('/',usersController.insert)
+router.post('/add-user',usersController.insert)
 router.get('/',usersController.index)
 router.get('/:id',usersController.show)
 router.delete('/',usersController.destroy)

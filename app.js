@@ -4,20 +4,17 @@ const login = require('./routes/login')
 const user = require('./routes/user')
 const revenues = require('./routes/revenues')
 const expenditure = require('./routes/expenditure')
-global.exeptions = []
+const { PORT } = require('./configs/constants/auth')
+
 // create the server
 const app = express();
 //configs
     app.use(bodyParser.json())
     app.use('/login',login)
-    app.use('/usuario',user)
-    app.use('/receita',revenues)
-    app.use('/receita',expenditure)
-//midlleware error controller
-    app.use((error, req, res, next) => {
+    app.use('/user',user)
+    app.use('/revenues',revenues)
+    app.use('/expenditure',expenditure)
 
-        res.status(exeptions[0]).send(exeptions[1])
-        
-    })
-const PORT = 8081
-app.listen(PORT,()=>{})
+
+app.listen(PORT,()=>console.log(`Server Started at Port ${PORT}
+=> http://localhost:${PORT}`))
